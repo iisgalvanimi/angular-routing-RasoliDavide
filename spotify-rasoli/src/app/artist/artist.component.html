@@ -1,1 +1,11 @@
-<p>artist works!</p>
+<div *ngIf="artist">
+    <h1>Nome artista: {{artist.name}}</h1>
+    <img src="{{artist.images[1].url}}" style="width: 320px; height: 320px;">
+    <h3>Numero di follower: {{artist.followers.total}}</h3>
+    <h3>Generi di musica prodotti:</h3>
+    <ul>
+        <li *ngFor="let genre of artist.genres">{{genre}}</li>
+    </ul>
+    
+</div>
+<button (click)="back()">Back</button>

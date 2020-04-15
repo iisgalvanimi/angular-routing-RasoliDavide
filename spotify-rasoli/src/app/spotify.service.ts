@@ -30,4 +30,16 @@ export class SpotifyService {
     
     return this.http.get(url, { headers : this.headers });
   }
+  getAlbum(id : string)
+  {
+    const url = `https://api.spotify.com/v1/albums/${id}`;
+
+    return this.http.get(url, {headers : this.headers});
+  }
+  getArtist(id : string)
+  {
+    const url = `https://api.spotify.com/v1/artists/${id}`;
+
+    return this.http.get(url, {headers : this.headers});
+  }
 } 

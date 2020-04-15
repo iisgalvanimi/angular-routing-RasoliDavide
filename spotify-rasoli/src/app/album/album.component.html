@@ -1,1 +1,32 @@
-<p>album works!</p>
+<div *ngIf="album">
+    <h1>Titolo dell'album: {{album.name}}</h1>
+    <img src="{{album.images[1].url}}" style="width: 300px; height: 300px; margin:auto; display:block;">
+    <h3>Casa discografica: {{album.label}}</h3>
+    <p>Data di rilascio: {{album.release_date}}</p>
+    <table align=center>
+        <tr>
+            <th>
+                Nome traccia
+            </th>
+            <th>
+                    Artista
+            </th>
+            <th>
+                Durata
+            </th>
+        </tr>
+        <tr *ngFor="let track of album.tracks.items">
+            <td>
+                <a [routerLink]="['/tracks', track.id]">{{track.name}}</a>
+            </td>
+            <td>
+                <a [routerLink]="['/artists', artist.id]" class="nomargin nopadding" *ngFor="let artist of track.artists">{{artist.name}}<br></a>
+            </td>
+            <td>
+                
+                {{fromMStoM(track.duration_ms)}}
+            </td>
+        </tr>
+    </table>
+</div>
+<button (click)="back()">Back</button>
